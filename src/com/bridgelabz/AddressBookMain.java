@@ -6,11 +6,8 @@ public class AddressBookMain {
     static HashMap<String, AddressBook> map = new HashMap<>();
     static String currentAddressBook;
     static String addressBookName;
-
     public static void main(String[] args) {
-
         System.out.println("Welcome to Address Book Program");
-
         boolean exit = false;
         while (!exit) {
             System.out.println("""
@@ -20,7 +17,8 @@ public class AddressBookMain {
                     3) To display Contacts
                     4) To delete contact
                     5) To add address book or select addressBook
-                    6) To exit""");
+                    6) To search contact
+                    7) To exit""");
 
             int option = scr.nextInt();
             switch (option) {
@@ -30,7 +28,6 @@ public class AddressBookMain {
                     } catch (Exception e) {
                         System.out.println("\nNo AddressBook Found\n");
                     }
-
                     break;
                 case 2:
                     try {
@@ -57,6 +54,13 @@ public class AddressBookMain {
                     chooseAddressBook();
                     break;
                 case 6:
+                    try {
+                        map.get(currentAddressBook).searchContact();
+                    } catch (Exception e) {
+                        System.out.println("\nNo AddressBook Found\n");
+                    }
+                    break;
+                case 7:
                     exit = true;
                     break;
                 default:
@@ -66,12 +70,10 @@ public class AddressBookMain {
         System.out.println(map);
     }
 
-
     static void chooseAddressBook() {
         System.out.println("""
         Press 1 to add AddressBook
         Press 2 to select AddressBook""");
-
         int option = scr.nextInt();
         switch (option) {
             case 1:
@@ -85,7 +87,6 @@ public class AddressBookMain {
                     map.put(addressBookName, addressBook);
                     currentAddressBook = addressBookName;
                 }
-
                 break;
             case 2:
                 System.out.println("Enter address book name");
@@ -101,4 +102,3 @@ public class AddressBookMain {
         }
     }
 }
-
