@@ -9,8 +9,6 @@ public class Contacts {
     private String zip;
     private String phoneNumber;
     private String email;
-
-
     public String getFirstName() {
         return firstName;
     }
@@ -41,30 +39,24 @@ public class Contacts {
     public void setState(String state) {
         this.state = state;
     }
-
     public String getZip() {
         return zip;
     }
-
     public void setZip(String zip) {
         this.zip = zip;
     }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
     public String getEmail() {
         return email;
     }
     public void setEmail(String email) {
         this.email = email;
     }
-
     public Contacts(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -75,9 +67,10 @@ public class Contacts {
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
+
     @Override
     public String toString() {
-        return "Contacts{" +
+        return "\nContacts{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
@@ -86,15 +79,15 @@ public class Contacts {
                 ", zip=" + zip +
                 ", phoneNumber=" + phoneNumber +
                 ", email='" + email + '\'' +
-                "}\n";
+                "}";
     }
 
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
-
     public Contacts() {
     }
 }
+
 
