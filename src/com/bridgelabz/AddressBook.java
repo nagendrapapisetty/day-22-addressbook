@@ -4,8 +4,6 @@ import java.util.Scanner;
 public class AddressBook {
     ArrayList<Contacts> list = new ArrayList<>();
     Scanner scr = new Scanner(System.in);
-
-
     void addContact() {
         System.out.println("Enter the first name");
         String firstName = scr.next().toLowerCase();
@@ -35,9 +33,6 @@ public class AddressBook {
         contact.setEmail(scr.next());
         list.add(contact);
     }
-
-
-
     void editContact(){
         if(list.isEmpty()){
             System.out.println("Address book is empty");
@@ -47,7 +42,6 @@ public class AddressBook {
             String firstName = scr.next().toLowerCase();
             System.out.println("Enter the last name of person to edit");
             String lastName = scr.next().toLowerCase();
-
             boolean found = false;
             for (Contacts contact : list) {
                 if (firstName.equals(contact.getFirstName().toLowerCase())) {
@@ -55,32 +49,24 @@ public class AddressBook {
                         System.out.println("Edit the details of person");
                         System.out.print("Enter first name: ");
                         contact.setFirstName(scr.next());
-
                         System.out.print("Enter last Name: ");
                         contact.setLastName(scr.next());
-
                         System.out.print("Enter Email: ");
                         contact.setEmail(scr.next());
-
                         System.out.print("Enter address: ");
                         scr.nextLine();
                         contact.setAddress(scr.nextLine());
-
                         System.out.print("Enter phone number: ");
                         contact.setPhoneNumber(scr.next());
-
                         System.out.print("Enter state: ");
                         contact.setState(scr.next());
-
                         System.out.print("Enter city: ");
                         contact.setCity(scr.next());
-
                         System.out.print("Enter zip: ");
                         contact.setZip(scr.next());
                         found = true;
                         break;
                     }
-
                 }
             }
             if (!found) {
@@ -88,6 +74,51 @@ public class AddressBook {
             }
         }
     }
+
+
+    void searchContact(){
+        if(list.isEmpty()){
+            System.out.println("No contacts to search in the addressBook");
+            return;
+        }
+        boolean exit = false;
+        while(!exit) {
+            System.out.println("""
+                Enter option
+                1) To search by City
+                2) To search by State
+                3) To exit
+                """);
+            int option = scr.nextInt();
+
+            switch (option) {
+                case 1:
+                    System.out.println("Enter the city to search contacts");
+                    String city = scr.next().toLowerCase();
+                    for (Contacts contacts : list) {
+                        if (contacts.getCity().toLowerCase().contains(city)) {
+                            System.out.println(contacts);
+                        }
+                    }
+                    break;
+                case 2:
+                    System.out.println("Enter the city to search contacts");
+                    String state = scr.next().toLowerCase();
+                    for (Contacts contacts : list) {
+                        if (contacts.getState().toLowerCase().contains(state)) {
+                            System.out.println(contacts);
+                        }
+                    }
+                    break;
+                case 3:
+                    exit = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
 
     void deleteContact(){
         if(list.isEmpty()){
@@ -114,8 +145,6 @@ public class AddressBook {
             }
         }
     }
-
-
     void displayContacts(){
         if(list.isEmpty()){
             System.out.println("No contacts to display");
@@ -125,14 +154,10 @@ public class AddressBook {
                 System.out.println(contact);
             }
         }
-
     }
     @Override
     public String toString() {
         return  list +
                 "}\n";
     }
-
 }
-
-
