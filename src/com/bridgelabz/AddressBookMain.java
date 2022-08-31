@@ -1,6 +1,10 @@
 package com.bridgelabz;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
-import java.util.*;
+
 public class AddressBookMain {
     static Scanner scr = new Scanner(System.in);
     static AddressBook addressBook;
@@ -8,7 +12,6 @@ public class AddressBookMain {
     public static ArrayList<String>  addressBooks = new ArrayList<>();
     static String currentAddressBook;
     static String addressBookName;
-
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program");
         boolean exit = false;
@@ -22,6 +25,7 @@ public class AddressBookMain {
                     5) To add address book or select addressBook
                     6) To search contact
                     7) To exit""");
+
             int option = scr.nextInt();
             switch (option) {
                 case 1:
@@ -71,7 +75,6 @@ public class AddressBookMain {
         }
         System.out.println(addressBooks);
     }
-
     static void chooseAddressBook() {
         System.out.println("""
         Press 1 to add AddressBook
@@ -105,3 +108,4 @@ public class AddressBookMain {
         }
     }
 }
+
